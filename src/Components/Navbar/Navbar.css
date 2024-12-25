@@ -72,7 +72,7 @@ header {
   border-radius: 50%;
   min-width: 10px;
   text-align: center;
-  height: 10px;
+  height: 12px;
 }
 
 /* Media queries for responsiveness */
@@ -101,5 +101,8 @@ header {
 
   header {
     justify-content: space-between;
+  }
+  .header-container{
+    padding: 0;
   }
 }
