@@ -1,0 +1,66 @@
+.alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.alert-box {
+  background-color: #fff;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 300px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.alert-content {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.alert-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert-button {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.action-button {
+  background-color: #007aff;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+ .alert-box {
+    width: 75%;
+  }
+}

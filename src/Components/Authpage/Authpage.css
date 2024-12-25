@@ -39,6 +39,7 @@ body {
   padding: 10px;
   font-size: 14px;
   border: 1px solid #dbdbdb;
+  width: 90%;
   border-radius: 4px;
   background: #fafafa;
 }
@@ -95,4 +96,75 @@ body {
   .auth-card {
     width: 75%;
   }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; }
+
+.spinner {
+  width: 30px;
+  height:30px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid #fff;  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.show-hide-button {
+  background: none;
+  border: none;
+  color: #0095f6; 
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 10px; 
+  margin-left: -5px; 
+  transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.show-hide-button:hover {
+  color: #0077cc; 
+}
+
+.show-hide-button:active {
+  color: #005f99; 
+  transform: scale(0.95); 
+}
+
+
+.show-hide-button::after {
+  content: attr(title); 
+  font-size: 12px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+
+.password-input-container {
+  position: relative;
+  width: 100%; 
+  display: flex;
+  justify-content: space-between;
 }
