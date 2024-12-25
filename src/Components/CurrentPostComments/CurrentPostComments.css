@@ -1,0 +1,173 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.current-post-comments {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 300px;
+  max-height: 400px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.current-post-comments h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.comments-list {
+  list-style-type: none;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.comment-profile-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;  
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.comment-profile-image:hover {
+ 
+  border: 2px solid #fe2c55; 
+  transition: border 0.3s ease; 
+}
+
+.comment-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-username {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.comment-text {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.comment-time {
+  font-size: 10px;
+  color: #999;
+  margin-top: 5px;
+}
+
+.comment-actions {
+  margin-top: 10px;
+}
+
+.like-button,
+.reply-button {
+  font-size: 10px;
+  color: #fe2c55;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.like-button.liked {
+  color: #1d75fe;
+}
+
+.replies {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.reply-item {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.reply-username {
+  font-weight: bold;
+}
+
+.reply-form textarea {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.reply-item .reply-text,
+.reply-time {
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.reply-time {
+  color: #999;
+}
+
+.reply-form button {
+  font-size: 10px;
+  background-color: #fe2c55;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.reply-form button:hover {
+  background-color: #e51b4f;
+}
+
+
+.comment-item:last-child {
+  margin-bottom: 0;
+}
+
+
+.current-post-comments::-webkit-scrollbar {
+  width: 5px;
+}
+
+.current-post-comments::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.current-post-comments::-webkit-scrollbar-thumb:hover {
+  background-color: #ccc;
+}
+
+
+@media screen and (max-width: 768px) {
+  .current-post-comments {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .current-post-comments {
+    display: none;
+  }
+}

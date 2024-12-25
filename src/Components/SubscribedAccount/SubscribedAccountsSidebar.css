@@ -1,0 +1,116 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.subscribed-accounts-container {
+  position: fixed;
+  top: 260px;
+  left: 10px;
+  width: 180px;
+  height: auto;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.subscribed-accounts-container h3 {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.account-list {
+  list-style-type: none;
+}
+
+.account-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.profile-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
+.full-name,
+.username {
+  display: block;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 95px; 
+}
+.username {
+  font-size: 10px;
+  color: #666;
+}
+
+.account-item:hover {
+  background-color: #f0f0f0; 
+  border-radius: 5px; 
+  padding: 5px; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+  transform: scale(1.05); 
+  cursor: pointer;
+}
+
+.profile-image:hover {
+  border: 2px solid #fe2c55; 
+  transition: border 0.3s ease; 
+}
+
+.account-item:last-child {
+  margin-bottom: 0;
+}
+
+
+@media screen and (max-width: 768px) {
+  .subscribed-accounts-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .subscribed-accounts-container {
+    display: none;
+  }
+}
+
+.see-all-link {
+  color: #fe2c55;
+  font-size: 12px; 
+  font-weight: bold; 
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  display: inline-block; 
+  transition: color 0.3s ease;
+}
+
+.see-all-link:hover {
+  color: #d92142; 
+  text-decoration: underline; 
+}
