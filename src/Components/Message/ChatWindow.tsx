@@ -5,7 +5,7 @@ interface Message {
   text: string;
   sender: "me" | "other";
   timestamp: string;
-  replyTo?: string; // Added to store the text of the message being replied to
+  replyTo?: string;
 }
 
 interface ChatUser {
@@ -51,7 +51,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ user, onBackClick }) => {
 
       if (selectedMessage) {
         newMessage.text = `${messageInput}`;
-        newMessage.replyTo = selectedMessage.text; // Save the original message text
+        newMessage.replyTo = selectedMessage.text; 
       }
 
       setMessages([...messages, newMessage]);
