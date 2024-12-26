@@ -65,7 +65,7 @@ const MessageList: React.FC = () => {
       >
         <div className="user-list-header">
           <button className="back-button-list" onClick={handleClick}>
-            {"<-"} Back
+            {"<"} Back
           </button>
           <h2>Messages</h2>
         </div>
