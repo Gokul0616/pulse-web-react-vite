@@ -1,3 +1,4 @@
+/* Chat screen layout */
 .chat-screen {
   display: flex;
   flex-direction: column;
@@ -6,22 +7,13 @@
   background-color: #f9f9f9;
 }
 
-
+/* Chat header */
 .chat-header {
   display: flex;
   align-items: center;
   padding: 10px 15px;
   background-color: #ffffff;
   border-bottom: 1px solid #eaeaea;
-}
-
-.back-button {
-  display: none;
-  margin-right: 10px;
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 .chat-avatar {
@@ -44,7 +36,7 @@
   color: gray;
 }
 
-
+/* Messages container */
 .chat-messages {
   flex: 1;
   padding: 15px;
@@ -54,16 +46,17 @@
   background-color: #f9f9f9;
 }
 
+/* Chat bubble styling */
 .chat-bubble {
-  max-width: 70%; 
+  max-width: 70%;
   padding: 10px;
   margin: 5px 0;
   border-radius: 20px;
   position: relative;
   font-size: 14px;
-  word-wrap: break-word; 
-  overflow-wrap: break-word; 
-  white-space: pre-wrap; 
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .chat-sent {
@@ -79,14 +72,41 @@
   color: #000;
 }
 
-
 .chat-timestamp {
   font-size: 10px;
   color: gray;
   margin-top: 5px;
 }
 
+/* Styling for the reply info */
+.reply-info {
+  background-color: #cbe4ef; /* Light blue background */
+  padding: 10px;
+  font-size: 14px;
+  color: #007bff; /* Blue text color */
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+}
 
+/* Styling for the reply tag inside the message */
+.reply-tag {
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #888;
+  border-radius: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Input field */
 .chat-input {
   display: flex;
   padding: 10px;
@@ -102,6 +122,7 @@
   outline: none;
 }
 
+/* Send button */
 .send-button {
   margin-left: 10px;
   background-color: #0095f6;
@@ -116,11 +137,14 @@
   cursor: pointer;
 }
 
+/* Media query for responsiveness */
 @media screen and (max-width: 768px) {
-  .back-button {
-    display: flex;
- 
-}
+  .chat-input input {
+    padding: 8px;
+  }
 
-  
+  .send-button {
+    width: 35px;
+    height: 35px;
+  }
 }
