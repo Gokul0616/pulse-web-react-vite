@@ -7,12 +7,12 @@ const AppRoutes: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/" element={<AuthPage />} />
+        <Route path="/" element={<AuthPage />} />
         <Route path="/home" element={<Index />} />
         <Route path="/message" element={<MessageComponent />} />
-        <Route path="*" element={<AuthPage />} /> */}
-        <Route path="/" element={<Index />} />
-        <Route path="/message" element={<MessageComponent />} />
+        <Route path="*" element={<AuthPage />} />
+        {/* <Route path="/" element={<Index />} />
+        <Route path="/message" element={<MessageComponent />} /> */}
       </Routes>
     </Router>
   );
