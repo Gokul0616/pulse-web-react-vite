@@ -1,0 +1,90 @@
+/* ProfileSidebar.css */
+.profile-sidebar {
+  position: absolute;
+  right: 10px;
+  top: 55px;
+  width: 20%;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image-sidebar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.profile-image-sidebar:hover {
+  border: 2px solid #fe2c55;
+  transition: border 0.3s ease;
+  cursor: pointer;
+}
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-name-sidebar {
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.username-sidebar {
+  cursor: pointer;
+  font-size: 12px;
+  color: #555;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-count {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #777;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-sidebar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .profile-sidebar {
+    position: fixed;
+    top: 55px;
+    right: 8%;
+  }
+}

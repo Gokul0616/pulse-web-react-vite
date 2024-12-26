@@ -56,11 +56,11 @@ header {
   border-radius: 50%;
 }
 
-.notification {
+.message {
   position: relative;
 }
 
-.notification-count {
+.message-count {
   position: absolute;
   top: -5px;
   right: -5px;
@@ -82,7 +82,7 @@ header {
   }
 
   .icons {
-    width: 100px;
+    width: 85px;
   }
 
   header {
@@ -96,7 +96,7 @@ header {
   }
 
   .icons {
-    width: fit-content;
+    width:80px;
   }
 
   header {

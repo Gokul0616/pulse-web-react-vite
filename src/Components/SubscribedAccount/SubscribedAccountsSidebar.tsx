@@ -40,11 +40,15 @@ const SubscribedAccountsSidebar: React.FC = () => {
             <img
               src={account.profileImage}
               alt={`${account.fullName}'s profile`}
-              className="profile-image"
+              className="profile-image-subscribe-account"
             />
             <div className="account-info">
-              <span className="full-name">{account.fullName}</span>
-              <span className="username">{account.username}</span>
+              <span className="full-name-subscribe-account">
+                {account.fullName}
+              </span>
+              <span className="username-subscribe-account">
+                {account.username}
+              </span>
             </div>
           </li>
         ))}

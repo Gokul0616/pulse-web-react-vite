@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { Home, Group, Subscriptions, Search } from "@mui/icons-material";
-import "./Sidebar.css";
+import {
+  Home,
+  Group,
+  Subscriptions,
+  Search,
+  Person2,
+} from "@mui/icons-material";
+import "./SideMenubar.css";
 
-const Sidebar: React.FC = () => {
+const SideMenubar: React.FC = () => {
   const [activeLink, setActiveLink] = useState("For You");
 
   const handleLinkClick = (link: string) => {
@@ -85,10 +91,18 @@ const Sidebar: React.FC = () => {
             <Search className="icon" />
             <span>Discover</span>
           </a>
+          <a
+            href="#"
+            className={activeLink === "Profile" ? "active" : ""}
+            onClick={() => handleLinkClick("Profile")}
+          >
+            <Person2 className="icon" />
+            <span>Profile</span>
+          </a>
         </div>
       </div>
     </>
   );
 };
 
-export default Sidebar;
+export default SideMenubar;

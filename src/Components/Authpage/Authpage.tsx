@@ -8,15 +8,37 @@ import { useNavigate } from "react-router-dom";
 const AuthPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem("token");
 
-    if (token) {
-      navigate("/home");
+    if (!token) {
+      navigate("/");
+      return;
     }
-  }, []);
+
+    const fetchData = async () => {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/userAuth/user`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response.data != null) {
+        navigate("/home");
+      }
+      if (response.data == null) {
+        navigate("/");
+      }
+    };
+
+    fetchData();
+  }, [navigate]);
+
   const [isSignIn, setIsSignIn] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [usernameAvailable, setUsernameAvailable] = useState(true);
   const [alertData, setAlertData] = useState({
     title: "",
     content: "",
@@ -45,9 +67,22 @@ const AuthPage = () => {
     setErrors({ name: "", username: "", password: "", email: "" });
   };
 
+  const [usernameTimeout, setUsernameTimeout] = useState<NodeJS.Timeout | null>(
+    null
+  );
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    if (!isSignIn && name === "username") {
+      if (usernameTimeout) clearTimeout(usernameTimeout);
+
+      const timeout = setTimeout(() => {
+        checkUsername(value);
+      }, 500); // Debounce time (500ms)
+      setUsernameTimeout(timeout);
+    }
   };
 
   const validateForm = () => {
@@ -63,7 +98,17 @@ const AuthPage = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+
+    if (!usernameAvailable) {
+      setErrors((prevErrors: any) => ({
+        ...prevErrors,
+        username: "Username already exists", // Make sure error is shown
+      }));
+      return; // Prevent form submission
+    }
     const validationErrors = validateForm();
+    console.log(Object.keys(validationErrors).length);
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
@@ -86,7 +131,7 @@ const AuthPage = () => {
       );
 
       if (response.status === 200) {
-        localStorage.setItem("jwt", response.data);
+        localStorage.setItem("token", response.data);
 
         setAlertData({
           title: "Successful",
@@ -136,7 +181,40 @@ const AuthPage = () => {
       setIsLoading(false);
     }
   };
+  const checkUsername = async (username: string) => {
+    if (!username) {
+      setErrors({ ...errors, username: "" });
+      setUsernameAvailable(true);
+      return;
+    }
 
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/userAuth/checkUsername`,
+        username
+      );
+      setUsernameAvailable(response.data);
+
+      if (!response.data) {
+        setErrors((prevErrors: any) => ({
+          ...prevErrors,
+          username: "Username already exists",
+        }));
+      } else {
+        setErrors((prevErrors: any) => ({
+          ...prevErrors,
+          username: "", // Clear the error if the username is available
+        }));
+      }
+    } catch (error: any) {
+      if (error.response?.status === 400) {
+        setErrors((prevErrors: any) => ({
+          ...prevErrors,
+          username: error.response.data,
+        }));
+      }
+    }
+  };
   return (
     <>
       <div className="auth-container">
@@ -243,10 +321,13 @@ const AuthPage = () => {
       )}
       {isLoading && (
         <div className="overlay">
-          <div className="spinner"></div>
+          <div className="spinner">
+            <CircularProgress size={24} color="inherit" />
+          </div>
         </div>
       )}
     </>
   );
 };
+
 export default AuthPage;
