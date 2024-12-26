@@ -51,7 +51,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ user, onBackClick }) => {
 
       if (selectedMessage) {
         newMessage.text = `${messageInput}`;
-        newMessage.replyTo = selectedMessage.text; 
+        newMessage.replyTo = selectedMessage.text;
       }
 
       setMessages([...messages, newMessage]);
@@ -64,6 +64,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ user, onBackClick }) => {
     setSelectedMessage(message);
   };
 
+  
   return (
     <div className="chat-screen">
       <div className="chat-header">
@@ -85,6 +86,9 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ user, onBackClick }) => {
               message.sender === "me" ? "chat-sent" : "chat-received"
             }`}
             onClick={() => handleMessageClick(message)}
+            style={{
+              userSelect: selectedMessage === message ? "text" : "none", // Conditionally enable text selection
+            }}
           >
             {message.replyTo && (
               <div className="reply-info">
