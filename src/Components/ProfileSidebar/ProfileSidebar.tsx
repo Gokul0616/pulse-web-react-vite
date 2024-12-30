@@ -3,7 +3,7 @@ import "./ProfileSidebar.css";
 import axios from "axios";
 
 interface User {
-  profileImage: string;
+  profileUrl: string;
   name: string;
   username: string;
   followers: number;
@@ -29,8 +29,9 @@ const ProfileSidebar: React.FC = () => {
         const userData = response.data;
 
         const fetchedUser: User = {
-          profileImage:
-            userData.profileImage || "https://via.placeholder.com/100",
+          profileUrl:
+            userData.profileUrl ||
+            "https://cdn-icons-png.flaticon.com/128/1077/1077114.png",
           name: userData.name,
           username: `@${userData.username}`,
           followers: userData.followers || 0,
@@ -52,7 +53,7 @@ const ProfileSidebar: React.FC = () => {
         <>
           <div className="profile-info">
             <img
-              src={user.profileImage}
+              src={user.profileUrl}
               alt={`${user.name}'s profile`}
               className="profile-image-sidebar"
             />

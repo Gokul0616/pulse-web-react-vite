@@ -21,7 +21,7 @@ header {
 
 .logo {
   font-size: 24px;
-  font-family: "Pacifico", serif;
+  font-family: "Pacifico", serif;cursor: pointer;
   font-weight: bold;
 }
 
@@ -36,12 +36,12 @@ header {
 .icons {
   display: flex;
   justify-content: space-between;
-  width: 80px;
+  width: fit-content;
 }
 
 .icon {
   font-size: 18px;
-  cursor: pointer;
+  cursor: pointer;margin-left: 5px;
   padding: 5px;
   position: relative; /* Needed for the notification-count positioning */
 }
@@ -82,7 +82,7 @@ header {
   }
 
   .icons {
-    width: 85px;
+    width: fit-content;
   }
 
   header {
@@ -96,7 +96,7 @@ header {
   }
 
   .icons {
-    width:80px;
+    width:fit-content;
   }
 
   header {

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   height: 100vh;
+  padding-top: 55px
 }
 .user-list {
   width: 30%;
@@ -143,7 +144,8 @@
     display: none;
     height: 50vh;
   }
-
+.message-list {
+padding-bottom: 60px;}
   .chat-window.active {
     display: block;
   }

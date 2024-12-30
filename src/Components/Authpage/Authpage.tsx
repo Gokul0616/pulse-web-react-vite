@@ -7,33 +7,33 @@ import { useNavigate } from "react-router-dom";
 
 const AuthPage = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    const token = localStorage.getItem("token");
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
 
-    if (!token) {
-      navigate("/");
-      return;
-    }
+  //   if (!token) {
+  //     navigate("/");
+  //     return;
+  //   }
 
-    const fetchData = async () => {
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/userAuth/user`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (response.data != null) {
-        navigate("/home");
-      }
-      if (response.data == null) {
-        navigate("/");
-      }
-    };
+  //   const fetchData = async () => {
+  //     const response = await axios.get(
+  //       `${import.meta.env.VITE_API_URL}/userAuth/user`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  //     if (response.data != null) {
+  //       navigate("/home");
+  //     }
+  //     if (response.data == null) {
+  //       navigate("/");
+  //     }
+  //   };
 
-    fetchData();
-  }, [navigate]);
+  //   fetchData();
+  // }, [navigate]);
 
   const [isSignIn, setIsSignIn] = useState(true);
   const [isLoading, setIsLoading] = useState(false);

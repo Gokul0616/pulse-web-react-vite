@@ -1,0 +1,208 @@
+
+.mobileProfile-screen {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-bottom: 60px;
+  padding-top: 55px;
+  max-width: 480px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.mobileProfile-avatar-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mobileProfile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.mobileProfile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.mobileProfile-avatar:hover{
+ border: 2px solid #fe2c55;
+  transition: border 0.3s ease; 
+}
+.mobileProfile-info {
+  flex: 1;
+}
+
+.mobileProfile-fullname {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.mobileProfile-username {
+  font-size: 1rem;
+  color: gray;
+  margin: 0.2rem 0;
+}
+
+.mobileProfile-bio {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+
+.mobileProfile-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 15px;
+}
+
+.mobileProfile-stat {
+  text-align: center;
+}
+
+.mobileProfile-stat-value {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.mobileProfile-stat-label {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+
+.edit-profile-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.edit-profile-btn {
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.mobileProfile-divider {
+  border: none;
+  border-top: 1px solid #eaeaea;
+  margin: 20px 0;
+}
+
+
+.mobileProfile-media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.mobileProfile-media-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mobileProfile-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobileProfile-media-item video {
+  display: block;
+}
+
+
+.mobileProfile-content {
+  overflow-y: auto; 
+  max-height: calc(100vh - 220px); 
+  padding-bottom: 10px; 
+}
+
+
+@media (max-width: 768px) {
+  
+  .mobileProfile-media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mobileProfile-avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .mobileProfile-fullname {
+    font-size: 1.3rem;
+  }
+
+  .mobileProfile-username {
+    font-size: 0.9rem;
+  }
+
+  .mobileProfile-bio {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .mobileProfile-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobileProfile-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .mobileProfile-info {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .mobileProfile-fullname {
+    font-size: 1.2rem;
+  }
+
+  .mobileProfile-username {
+    font-size: 0.8rem;
+  }
+
+  .mobileProfile-bio {
+    font-size: 0.7rem;
+  }
+
+  .mobileProfile-media-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .edit-profile-btn {
+    width: 100%;
+  }
+}

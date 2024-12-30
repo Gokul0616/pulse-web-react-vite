@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Home,
   Group,
@@ -6,99 +6,122 @@ import {
   Search,
   Person2,
 } from "@mui/icons-material";
+import { useLocation, Link } from "react-router-dom";
 import "./SideMenubar.css";
 
 const SideMenubar: React.FC = () => {
-  const [activeLink, setActiveLink] = useState("For You");
+  const location = useLocation();
 
-  const handleLinkClick = (link: string) => {
-    setActiveLink(link);
+  // Determine the active link based on the current path
+  const getActiveLink = () => {
+    switch (location.pathname) {
+      case "/home":
+        return "For You";
+      case "/following":
+        return "Following";
+      case "/subscribed":
+        return "Subscribed";
+      case "/discover":
+        return "Discover";
+      case "/profile":
+        return "Profile";
+      case "/edit-profile":
+        return "Profile";
+      case "/message":
+        return "Message";
+      case "/add-post":
+        return "Add-Post";
+      default:
+        return "For You";
+    }
   };
 
+  const activeLink = getActiveLink();
+  if (activeLink == "Add-Post") {
+    return null;
+  }
   return (
     <>
-      <div className="menu-container">
-        <ul className="menu">
-          <li>
-            <a
-              href="#"
-              className={activeLink === "For You" ? "active" : ""}
-              onClick={() => handleLinkClick("For You")}
-            >
-              <Home className="icon" /> For You
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className={activeLink === "Following" ? "active" : ""}
-              onClick={() => handleLinkClick("Following")}
-            >
-              <Group className="icon" /> Following
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className={activeLink === "Subscribed" ? "active" : ""}
-              onClick={() => handleLinkClick("Subscribed")}
-            >
-              <Subscriptions className="icon" /> Subscribed
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className={activeLink === "Discover" ? "active" : ""}
-              onClick={() => handleLinkClick("Discover")}
-            >
-              <Search className="icon" /> Discover
-            </a>
-          </li>
-        </ul>
-      </div>
+      {activeLink == "Message" ? null : (
+        <div className="menu-container">
+          <ul className="menu">
+            <li>
+              <Link
+                to="/home"
+                className={activeLink === "For You" ? "active" : ""}
+              >
+                <Home className="icon" /> For You
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/following"
+                className={activeLink === "Following" ? "active" : ""}
+              >
+                <Group className="icon" /> Following
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/subscribed"
+                className={activeLink === "Subscribed" ? "active" : ""}
+              >
+                <Subscriptions className="icon" /> Subscribed
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/discover"
+                className={activeLink === "Discover" ? "active" : ""}
+              >
+                <Search className="icon" /> Discover
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/profile"
+                className={activeLink === "Profile" ? "active" : ""}
+              >
+                <Person2 className="icon" /> Profile
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
       <div className="bottom-tab-bar-container">
         <div className="bottom-tab-bar">
-          <a
-            href="#"
-            className={activeLink === "For You" ? "active" : ""}
-            onClick={() => handleLinkClick("For You")}
-          >
+          <Link to="/home" className={activeLink === "For You" ? "active" : ""}>
             <Home className="icon" />
             <span>For You</span>
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/following"
             className={activeLink === "Following" ? "active" : ""}
-            onClick={() => handleLinkClick("Following")}
           >
             <Group className="icon" />
             <span>Following</span>
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/subscribed"
             className={activeLink === "Subscribed" ? "active" : ""}
-            onClick={() => handleLinkClick("Subscribed")}
           >
             <Subscriptions className="icon" />
             <span>Subscribed</span>
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/discover"
             className={activeLink === "Discover" ? "active" : ""}
-            onClick={() => handleLinkClick("Discover")}
           >
             <Search className="icon" />
             <span>Discover</span>
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/profile"
             className={activeLink === "Profile" ? "active" : ""}
-            onClick={() => handleLinkClick("Profile")}
           >
             <Person2 className="icon" />
             <span>Profile</span>
-          </a>
+          </Link>
         </div>
       </div>
     </>
